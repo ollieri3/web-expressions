@@ -4,6 +4,8 @@ interface Props {
 }
 
 const { title } = Astro.props;
+
+
 ---
 
 <!doctype html>
@@ -14,20 +16,53 @@ const { title } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
 		<meta name="generator" content={Astro.generator} />
-    <link rel="preload" href="fonts/MonaSans-Regular.woff2" as="font" type="font/woff2">
+    <link rel="preload" href="fonts/Mona-Sans.woff2" as="font" type="font/woff2" crossorigin>
 		<title>{title}</title>
 	</head>
 	<body>
+    <p>Theme:</p>
+    <button>System</button>
+    <button>Light</button>
+    <button>Dark</button>
 		<slot />
 	</body>
 </html>
+
+
+<script>
+  const themeInStorage = window.localStorage.getItem('theme');
+
+  function themeIsValid(themeInStorage: null | string): themeInStorage is 'light' | "dark" {
+    return true
+  }
+
+  if(themeIsValid(themeInStorage)) {
+    throw new Error("Unknown theme in local storage, expected 'light' or 'dark'");
+  }
+
+  themeInStorage
+
+  let systemTheme = "light";
+  if(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    systemTheme = "dark";
+  }
+
+  
+  const theme: "light" | "dark" = themeInStorage ? themeInStorage : systemTheme;
+
+
+  console.log("themeInStorage", themeInStorage);
+  
+</script>
+
+
 <style is:global>
 
 @font-face {
   font-family: 'Mona Sans';
   src:
-    url('/fonts/MonaSans-Regular.woff2') format('woff2 supports variations'),
-    url('/fonts/MonaSans-Regular.woff2') format('woff2-variations');
+    url('/fonts/Mona-Sans.woff2') format('woff2 supports variations'),
+    url('/fonts/Mona-Sans.woff2') format('woff2-variations');
   font-weight: 200 900;
   font-stretch: 75% 125%;
 }
