@@ -1,0 +1,44 @@
+<select id="theme-switcher" class="dark:bg-gray-600 border">
+  <option selected value="system">System</option>
+  <option value="light">Light</option>
+  <option value="dark">Dark</option>
+</select>
+
+<script is:inline>
+  const themeInStorage = window.localStorage.getItem('theme');
+
+  const select = document.getElementById("theme-switcher");
+
+  if(themeInStorage) {
+    select.value = themeInStorage;
+  } else {
+    select.value = "system"
+  }
+
+  setRootElementClassForThemeValue(themeInStorage);
+
+  select.addEventListener("change", function handleThemeChange(e) {
+    const value = e.currentTarget.value;
+    if(value === "system") {
+      localStorage.removeItem("theme");
+      setRootElementClassForThemeValue(null);
+    } else {
+      localStorage.setItem("theme", value);
+      setRootElementClassForThemeValue(value)
+    }
+  })
+
+  function setRootElementClassForThemeValue(theme) {
+    if(theme === null) {
+      if(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    } else if (theme === "light") {
+      document.documentElement.classList.remove("dark");
+    } else {
+      document.documentElement.classList.add("dark");
+    }
+  }
+</script>

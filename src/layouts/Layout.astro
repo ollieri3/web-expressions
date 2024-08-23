@@ -1,11 +1,11 @@
 ---
+import ThemeSwitcher from '../components/ThemeSwitcher.astro';
+
 interface Props {
 	title: string;
 }
 
 const { title } = Astro.props;
-
-
 ---
 
 <!doctype html>
@@ -19,41 +19,11 @@ const { title } = Astro.props;
     <link rel="preload" href="fonts/Mona-Sans.woff2" as="font" type="font/woff2" crossorigin>
 		<title>{title}</title>
 	</head>
-	<body>
-    <p>Theme:</p>
-    <button>System</button>
-    <button>Light</button>
-    <button>Dark</button>
+	<body class="dark:bg-gray-600 dark:text-white transition-colors">
+    <ThemeSwitcher/>
 		<slot />
 	</body>
 </html>
-
-
-<script>
-  const themeInStorage = window.localStorage.getItem('theme');
-
-  function themeIsValid(themeInStorage: null | string): themeInStorage is 'light' | "dark" {
-    return true
-  }
-
-  if(themeIsValid(themeInStorage)) {
-    throw new Error("Unknown theme in local storage, expected 'light' or 'dark'");
-  }
-
-  themeInStorage
-
-  let systemTheme = "light";
-  if(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
-    systemTheme = "dark";
-  }
-
-  
-  const theme: "light" | "dark" = themeInStorage ? themeInStorage : systemTheme;
-
-
-  console.log("themeInStorage", themeInStorage);
-  
-</script>
 
 
 <style is:global>
