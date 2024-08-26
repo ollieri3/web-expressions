@@ -30,7 +30,7 @@ const { title } = Astro.props;
   </head>
   <body class="dark:bg-gray-600 dark:text-white transition-colors">
     <header
-      class="border-gray-400 max-w-[1024px] m-auto flex justify-center mt-4 relative"
+      class="border-gray-400 max-w-[600px] m-auto flex justify-between px-4 mt-4"
     >
       <div class="flex gap-2">
         <Image
@@ -48,7 +48,7 @@ const { title } = Astro.props;
           </p>
         </div>
       </div>
-      <div class="absolute right-0 top-0">
+      <div class="justify-self-end">
         <ThemeSwitcher />
       </div>
     </header>
