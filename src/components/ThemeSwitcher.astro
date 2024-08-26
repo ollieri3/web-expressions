@@ -5,32 +5,35 @@
 </select>
 
 <script is:inline>
-  const themeInStorage = window.localStorage.getItem('theme');
+  const themeInStorage = window.localStorage.getItem("theme");
 
   const select = document.getElementById("theme-switcher");
 
-  if(themeInStorage) {
+  if (themeInStorage) {
     select.value = themeInStorage;
   } else {
-    select.value = "system"
+    select.value = "system";
   }
 
   setRootElementClassForThemeValue(themeInStorage);
 
   select.addEventListener("change", function handleThemeChange(e) {
     const value = e.currentTarget.value;
-    if(value === "system") {
+    if (value === "system") {
       localStorage.removeItem("theme");
       setRootElementClassForThemeValue(null);
     } else {
       localStorage.setItem("theme", value);
-      setRootElementClassForThemeValue(value)
+      setRootElementClassForThemeValue(value);
     }
-  })
+  });
 
   function setRootElementClassForThemeValue(theme) {
-    if(theme === null) {
-      if(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    if (theme === null) {
+      if (
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+      ) {
         document.documentElement.classList.add("dark");
       } else {
         document.documentElement.classList.remove("dark");

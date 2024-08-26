@@ -4,9 +4,9 @@ import defaultTheme from "tailwindcss/defaultTheme";
 
 export default {
   darkMode: "selector",
-	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
-	theme: {
-		extend: {
+  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+  theme: {
+    extend: {
       fontFamily: {
         sans: ["Mona Sans", ...defaultTheme.fontFamily.sans],
         local: [
@@ -23,6 +23,6 @@ export default {
         ],
       },
     },
-	},
-	plugins: [],
-}
+  },
+  plugins: [],
+};
