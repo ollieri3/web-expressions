@@ -1,11 +1,11 @@
 ---
-import { Image } from 'astro:assets';
-import ThemeSwitcher from '../components/ThemeSwitcher.astro';
+import { Image } from "astro:assets";
+import ThemeSwitcher from "../components/ThemeSwitcher.astro";
 
 import logo from "../assets/logo.svg";
 
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
@@ -13,44 +13,57 @@ const { title } = Astro.props;
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
-		<meta name="generator" content={Astro.generator} />
-    <link rel="preload" href="fonts/Mona-Sans.woff2" as="font" type="font/woff2" crossorigin>
-		<title>{title}</title>
-	</head>
-	<body class="dark:bg-gray-600 dark:text-white transition-colors">
-
-    <header class="border-gray-400 max-w-[1024px] m-auto flex justify-center mt-4 relative">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
+    <meta name="generator" content={Astro.generator} />
+    <link
+      rel="preload"
+      href="fonts/Mona-Sans.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <title>{title}</title>
+  </head>
+  <body class="dark:bg-gray-600 dark:text-white transition-colors">
+    <header
+      class="border-gray-400 max-w-[1024px] m-auto flex justify-center mt-4 relative"
+    >
       <div class="flex gap-2">
-        <Image src={logo} alt="A stylized icon of an old-fashioned desktop computer. The computer has a gray body with a large blue screen, a small orange indicator light, and a detached keyboard at the bottom. The design is simple and cartoonish, using basic shapes and a limited color palette of gray, black, blue, and orange." loading="eager" width={48} height={48} class="shrink-0" /> 
+        <Image
+          src={logo}
+          alt="A stylized icon of an old-fashioned desktop computer. The computer has a gray body with a large blue screen, a small orange indicator light, and a detached keyboard at the bottom. The design is simple and cartoonish, using basic shapes and a limited color palette of gray, black, blue, and orange."
+          loading="eager"
+          width={48}
+          height={48}
+          class="shrink-0"
+        />
         <div>
           <a href="/" class="block text-xl">Web Expressions</a>
-          <p class=" text-gray-500 dark:text-gray-300">Thoughts on web development.</p>
+          <p class="text-gray-500 dark:text-gray-300">
+            Thoughts on web development.
+          </p>
         </div>
       </div>
       <div class="absolute right-0 top-0">
-        <ThemeSwitcher/>
+        <ThemeSwitcher />
       </div>
     </header>
 
-		<slot />
-	</body>
+    <slot />
+  </body>
 </html>
 
-
 <style is:global>
-
-@font-face {
-  font-family: 'Mona Sans';
-  src:
-    url('/fonts/Mona-Sans.woff2') format('woff2 supports variations'),
-    url('/fonts/Mona-Sans.woff2') format('woff2-variations');
-  font-weight: 200 900;
-  font-stretch: 75% 125%;
-}
-
+  @font-face {
+    font-family: "Mona Sans";
+    src:
+      url("/fonts/Mona-Sans.woff2") format("woff2 supports variations"),
+      url("/fonts/Mona-Sans.woff2") format("woff2-variations");
+    font-weight: 200 900;
+    font-stretch: 75% 125%;
+  }
 </style>
