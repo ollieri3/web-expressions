@@ -1,7 +1,18 @@
 ---
+import { getCollection } from "astro:content";
+
 import Layout from "../layouts/Layout.astro";
+
+const blogPosts = await getCollection("blog");
 ---
 
 <Layout title="Web Expressions">
-  <main></main>
+  <main class="max-w-[600px] m-auto mt-12 p-4">
+    <h1 class="font-semibold">Latest Posts</h1>
+    {
+      blogPosts.map((post) => (
+        <a href={`/posts/${post.slug}`}>{post.data.title}</a>
+      ))
+    }
+  </main>
 </Layout>
