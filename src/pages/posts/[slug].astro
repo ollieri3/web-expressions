@@ -16,6 +16,8 @@ const { Content } = await entry.render();
 ---
 
 <Layout title={entry.data.title}>
-  <h1>{entry.data.title}</h1>
-  <Content />
+  <article class="max-w-[700px] p-4 m-auto mt-12 prose">
+    <h1>{entry.data.title}</h1>
+    <Content />
+  </article>
 </Layout>
