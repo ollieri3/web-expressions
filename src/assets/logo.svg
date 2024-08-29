@@ -5,7 +5,7 @@
     <polygon fill="#b3b3b3" points="53 57 11 57 13 45 51 45 53 57" />
     <rect fill="gray" height="4" width="42" x="11" y="57" />
     <rect id="screen" height="26" rx="3" ry="3" width="26" x="19" y="7">
-      <animate begin="0.25s" attributeName="fill" from="#000000" to="#29abe2" dur="0.5s" fill="freeze" calcMode="spline"
+      <animate begin="0.5s" attributeName="fill" from="#000000" to="#29abe2" dur="0.5s" fill="freeze" calcMode="spline"
         keyTimes="0; 1" keySplines="0.42 0 0.58 1" />
     </rect>
     <rect fill="#fbb03b" height="4" width="7" x="38" y="37" />
