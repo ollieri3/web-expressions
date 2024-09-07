@@ -8,11 +8,17 @@ const blogPosts = await getCollection("blog");
 
 <Layout title="Web Expressions">
   <main class="max-w-[700px] m-auto mt-12 p-4">
-    <h1 class="font-semibold">Latest Posts</h1>
     {
-      blogPosts.map((post) => (
-        <a href={`/posts/${post.slug}`}>{post.data.title}</a>
-      ))
+      blogPosts.length > 0 ? (
+        <>
+          <h1 class="font-semibold">Latest Posts</h1>
+          {blogPosts.map((post) => (
+            <a href={`/posts/${post.slug}`}>{post.data.title}</a>
+          ))}
+        </>
+      ) : (
+        <p class="text-sm">Nothing to see... yet</p>
+      )
     }
   </main>
 </Layout>
