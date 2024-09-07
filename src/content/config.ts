@@ -1,10 +1,9 @@
-import { z, defineCollection } from "astro:content";
+import { defineCollection } from "astro:content";
+import { rssSchema } from "@astrojs/rss";
 
 const blogCollection = defineCollection({
   type: "content", // v2.5.0 and later
-  schema: z.object({
-    title: z.string(),
-  }),
+  schema: rssSchema,
 });
 
 export const collections = {
