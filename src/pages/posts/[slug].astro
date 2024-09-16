@@ -15,7 +15,7 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 
-<Layout title={entry.data.title}>
+<Layout title={entry.data.title || ""}>
   <article
     class="max-w-[700px] p-4 m-auto mt-12 prose dark:prose-invert prose-headings:font-semibold"
   >
