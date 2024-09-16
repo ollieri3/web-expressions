@@ -75,13 +75,13 @@ const { title } = Astro.props;
       <p>© 2024 Oliver Ridsdale</p>
       <div class="flex gap-4">
         <RSSIndicator />
-        <a
+        <p>A blog by <a
           href="https://oliver-ridsdale.com"
-          class="flex items-baseline gap-1 hover:underline"
+          class="inline-flex items-baseline gap-1 underline"
           target="_blank"
           rel="noopener noreferrer"
         >
-          A blog by Oliver Ridsdale
+          Oliver Ridsdale
           <span class="sr-only">(opens in new window)</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -97,7 +97,7 @@ const { title } = Astro.props;
               d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
             ></path>
           </svg>
-        </a>
+        </a></p>
       </div>
     </footer>
   </body>
